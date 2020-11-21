@@ -1,6 +1,6 @@
 
 #include "Macierz.h"
-
+#include <iomanip> 
 #include <string>
 #include <fstream>
 #include <windows.h>
@@ -71,11 +71,11 @@ Macierz::~Macierz(){
 //   USTAWIA WARTOSC KOMURKI
 void Macierz::set(int n, int m, double val)
 {
-    M[n][m] = val;
+        M[n][m] = val;
 }
 
 // ZWRACA WARTOSC KOMURKI
-double Macierz::get(int n, int m){
+double Macierz::get(int n, int m){        
     return M[n][m];
 }
 
@@ -85,7 +85,7 @@ void Macierz::print()
 {
 
     for (int i = 0; i < W; i++) {
-        for (int j = 0; j < K; j++)      std::cout << M[i][j] << "  ";
+        for (int j = 0; j < K; j++)      cout << setfill(' ') << setw(4) << M[i][j];
         std::cout << std::endl;
     }
 }
@@ -129,10 +129,12 @@ Macierz* Macierz::multiply(Macierz* m2)
     int C=m2->cols();
 
     Macierz* nowa = new Macierz(W, C);
+    int rows = W;
+    int cols = K;
 
-    for (int i = 0; i < W; i++)
+    for (int i = 0; i < rows; i++)
         for (int j = 0; j < C; j++)
-            for (int l = 0; l < K; l++) {
+            for (int l = 0; l < cols; l++) {
                 double temp = M[i][l] * m2->get(l, j);
                 nowa->set(i, j, nowa->get(i, j) + temp);
             }   
