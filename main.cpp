@@ -12,9 +12,9 @@ int main(int argc, char* argv[])
 {
   srand( time(NULL));
 
-    Macierz* m1 = new Macierz(4);
-    Macierz* m2 = new Macierz(4,2);
-    Macierz* m3 = new Macierz(4,2);
+    Macierz* m1 = new Macierz(7);
+    Macierz* m2 = new Macierz(7,4);
+    Macierz* m3 = new Macierz(7,4);
 
   
 
@@ -37,13 +37,12 @@ int main(int argc, char* argv[])
     
     cout<<"\nm3:\n";    m3->print();
   
+
     Macierz* mnoz = m1->multiply(m2);
-    cout<<"\nmnozenie: m1 x m2\n";
-    mnoz->print();
+    cout<<"\nmnozenie: m1 x m2\n";    mnoz->print();
   
     Macierz* suma = m2->add(m3); 
-    cout<<"\nsuma: m2 + m3\n";
-    suma->print();
+    cout<<"\nsuma: m2 + m3\n";        suma->print();
 
 
 
