@@ -1,0 +1,3 @@
+D:/STUDIA/III SEMESTR/JIPP/LAB-03/test/CMakeFiles/edit_cache.dir
+D:/STUDIA/III SEMESTR/JIPP/LAB-03/test/CMakeFiles/lab4.dir
+D:/STUDIA/III SEMESTR/JIPP/LAB-03/test/CMakeFiles/rebuild_cache.dir

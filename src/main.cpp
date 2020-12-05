@@ -4,7 +4,7 @@
 #include <fstream>
 #include <iomanip> 
 #include <time.h> 
-#include "Macierz.h"
+#include <Macierz.h>
 
 using namespace std;
 
@@ -49,18 +49,19 @@ int main(int argc, char* argv[])
 
 
 
-    m1->store("kszton1.txt");
-    m2->store("kszton2.txt");
-    m3->store("kszton3.txt");
-    suma->store("suma.txt");
-    mnoz->store("mnoz.txt");
+    m1->store("zapis/kszton1.txt");
+    m2->store("zapis/kszton2.txt");
+    m3->store("zapis/kszton3.txt");
+    suma->store("zapis/suma.txt");
+    mnoz->store("zapis/mnoz.txt");
 
 
-    Macierz* m4 = new Macierz("suma.txt");
+    Macierz* m4 = new Macierz("zapis/suma.txt");
     cout<<"\nm4: z suma.txt\n";
     m4->print();
  
     
    
+   system("PAUSE");
     return 0;
 }

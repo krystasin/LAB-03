@@ -1,5 +1,5 @@
 
-#include "Macierz.h"
+#include <Macierz.h>
 #include <iomanip> 
 #include <string>
 #include <fstream>

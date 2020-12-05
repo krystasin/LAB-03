@@ -1,0 +1,12 @@
+project("Labolatorium_04")
+
+cmake_minimum_required(VERSION "3.19.1")
+
+include_directories(include)
+
+add_executable(lab4 
+	src/main.cpp
+	src/Macierz.cpp
+	include/Macierz.h
+	)
+
