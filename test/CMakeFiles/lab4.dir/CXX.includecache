@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/Macierz.h
+../include/lab4/Macierz.h
 iostream
 -
 string
