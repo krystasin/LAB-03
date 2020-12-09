@@ -10,57 +10,80 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-  srand( time(NULL));
+    
 
-    Macierz* m1 = new Macierz(7);
-    Macierz* m2 = new Macierz(7,4);
-    Macierz* m3 = new Macierz(7,4);
+    Macierz m1(7);
+    Macierz m2(7,4);
+    Macierz m3(7,4);
 
   
 
-    for (int i = 0; i < m1->rows(); i++)
-        for (int j=0; j < m1->cols(); j++)
-          m1->set(i,j, rand()%10 - 3);
+    for (int i = 0; i < m1.rows(); i++)
+        for (int j=0; j < m1.cols(); j++)
+          try {   m1.set(i,j, i+j); } catch (const std::runtime_error& ex)  {std::cout <<  "-wyjatek- :" << ex.what() << std::endl; }
           
       
-    for (int i = 0; i < m2->rows(); i++)
-        for (int j = 0; j < m2->cols(); j++)
+    for (int i = 0; i < m2.rows(); i++)
+        for (int j = 0; j < m2.cols(); j++)
         {
-          m2->set(i,j, rand()%10 );
-          m3->set(i,j, rand()%10 );
+          try {     m2.set(i,j, i+2*j); } catch (const std::runtime_error& ex)  {std::cout <<  "-wyjatek- :" << ex.what() << std::endl; }
+          try {     m3.set(i,j, 2*i+j); } catch (const std::runtime_error& ex)  {std::cout <<  "-wyjatek- :" << ex.what() << std::endl; }
         }
           
 
-    cout<<"m1:\n";      m1->print();
-    
-    cout<<"\nm2:\n";    m2->print();
-    
-    cout<<"\nm3:\n";    m3->print();
+    cout<<"m1:\n";      m1.print();
+    cout<<"\nm2:\n";    m2.print();    
+    cout<<"\nm3:\n";    m3.print();
   
+  try
+  {
+    Macierz mnoz = m1.multiply(m2);
+    cout<<"\nmnozenie: m1 x m2\n";    mnoz.print();
+    
+    try
+    {
+       mnoz.store("zapis/mnoz.txt");
+    }
+    catch(const std::runtime_error& ex)
+    {
+      std::cerr << ex.what() << '\n';
+    }
+  }
+  catch (const std::runtime_error& ex ){
+    std::cout <<  "-wyjatek- :" << ex.what() << std::endl;
+  }
 
-    Macierz* mnoz = m1->multiply(m2);
-    cout<<"\nmnozenie: m1 x m2\n";    mnoz->print();
-  
-    Macierz* suma = m2->add(m3); 
-    cout<<"\nsuma: m2 + m3\n";        suma->print();
+    Macierz suma = m2.add(m3); 
+    cout<<"\nsuma: m2 + m3\n";        suma.print();
 
 
 
 
 
 
-    m1->store("zapis/kszton1.txt");
-    m2->store("zapis/kszton2.txt");
-    m3->store("zapis/kszton3.txt");
-    suma->store("zapis/suma.txt");
-    mnoz->store("zapis/mnoz.txt");
+    m1.store("zapis/kszton1.txt");
+    m2.store("zapis/kszton2.txt");
+    m3.store("zapis/kszton3.txt");
+    suma.store("zapis/suma.txt");
 
 
-    Macierz* m4 = new Macierz("zapis/suma.txt");
+
+    Macierz m4("zapis/suma.txt");
     cout<<"\nm4: z suma.txt\n";
-    m4->print();
+    m4.print();
  
     
+  cout<<"\n_____________________________________________\n";
+
+  try
+  {
+    Macierz mm = m1.add(m2);
+  }
+  catch( const std::runtime_error& ex )
+  {
+    cout << "wystapil wyjatek o bledzie: " << ex.what();
+  }
+
    
    system("PAUSE");
     return 0;

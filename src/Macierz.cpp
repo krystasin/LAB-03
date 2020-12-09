@@ -11,6 +11,9 @@ using namespace std;
 
 Macierz::Macierz(int x)
 {
+    if( x<= 0)  throw std::runtime_error{" rozmiar macierzy musi byc większy od 0 "};
+    if( x >= 100)  throw std::runtime_error{" rozmiar macierzy musi byc mniejszy od 100 "};
+
     this->W = x;
     this->K = x;
 
@@ -26,6 +29,8 @@ Macierz::Macierz(int x)
 
 Macierz::Macierz(int n, int m)
 {
+    if( n<= 0 || m<=0)  throw std::runtime_error{" rozmiar macierzy musi byc większy od 0 "};
+    if( n >= 100 || m >= 100)  throw std::runtime_error{" rozmiar macierzy musi byc mniejszy od 100 "};
 
     this->W = n;
     this->K = m;
@@ -44,9 +49,11 @@ Macierz::Macierz(const char* filename)
 {
     fstream odczyt;
     odczyt.open(filename, std::ios::in);
-    odczyt >> W >> K;
+    if( !odczyt.good() ) throw std::runtime_error{ "blad odczytu pliku" };
 
+    odczyt >> W >> K;
     M = new double* [W]; //wiersze
+
     for (int i = 0; i < W; i++)
         M[i] = new double[K];
 
@@ -58,24 +65,23 @@ Macierz::Macierz(const char* filename)
 
     odczyt.close();
 }
-
+    
 
 // Destruktor
-Macierz::~Macierz(){
-    for (int i = 0; i < W; i++)
-        delete M[i];
-    delete M;
-}
+Macierz::~Macierz(){}
 
 
 //   USTAWIA WARTOSC KOMURKI
 void Macierz::set(int n, int m, double val)
 {
-        M[n][m] = val;
+    if( n<0 || n>=W || m<0 ||m>=K ) throw runtime_error{ "podyny wiersz lub kolumna jest z poza zakresu macierzy" };
+    M[n][m] = val;
 }
 
 // ZWRACA WARTOSC KOMURKI
-double Macierz::get(int n, int m){        
+double Macierz::get(int n, int m){   
+    if( n<0 || n>=W || m<0 ||m>=K ) throw runtime_error{ "podyny wiersz lub kolumna jest z poza zakresu macierzy" };
+
     return M[n][m];
 }
 
@@ -101,45 +107,61 @@ void Macierz::info(){
 }
 
 
-// ODEJMOWANIE
-Macierz* Macierz::subtract(Macierz* m2)
-{
-    if (!(m2->rows() == W && m2->cols() == K)) {
-        std::cout << " !! macierze muszą miec sam rozmiar" << std::endl;
-        return NULL;
-    }
 
-    Macierz* nowa = new Macierz(W, K);
 
+// OPERACJE NA MACIERZACH
+
+// DODAWANIE
+Macierz Macierz::add(Macierz m2)
+{ 
+    if (!(m2.rows() == W && m2.cols() == K))    throw std::runtime_error{ "zly rozmiar macierzy" };
+   
+    Macierz nowa(W,K);
     for (int i = 0; i < W; i++)
         for (int j = 0; j < K; j++)
-            nowa->set(i, j, M[i][j] - m2->get(i, j));
+           nowa.set(i,j, M[i][j] + m2.get(i,j));
+
+    return nowa;
+}
+
+
+
+// ODEJMOWANIE
+Macierz Macierz::subtract(Macierz m2)
+{
+    if (!(m2.rows() == W && m2.cols() == K))    throw std::runtime_error{ "zly rozmiar macierzy" };
+
+    Macierz nowa(W, K);
+    for (int i = 0; i < W; i++)
+        for (int j = 0; j < K; j++)
+            nowa.set(i, j, M[i][j] - m2.get(i, j));
 
     return nowa;
 }
 
 // MNOZENIE
-Macierz* Macierz::multiply(Macierz* m2)
+Macierz Macierz::multiply(Macierz m2)
 {
-    if (K != m2->rows()) {
-        std::cout << "tych macierzy nie można przez siebie przemnozyć" << std::endl;
-        return NULL;
-    }
+    if (K != m2.rows()) throw std::runtime_error{ "nie mozna wykonac mnozenia na tych macierzach" };
 
-    int C=m2->cols();
+    int C=m2.cols();
+    Macierz nowa(W, C);
 
-    Macierz* nowa = new Macierz(W, C);
     int rows = W;
     int cols = K;
 
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < C; j++)
             for (int l = 0; l < cols; l++) {
-                double temp = M[i][l] * m2->get(l, j);
-                nowa->set(i, j, nowa->get(i, j) + temp);
+                double temp = M[i][l] * m2.get(l, j);
+                nowa.set(i, j, nowa.get(i, j) + temp);
             }   
     return nowa;
 }
+
+
+
+
 
 // ZAPIS DO PLIKU
 int Macierz::store(string filename)
@@ -147,10 +169,7 @@ int Macierz::store(string filename)
     fstream zapis;
     zapis.open(filename, std::ios::out);
 
-    if (zapis.good() == false) {
-        std::cout << "nie udało sie otworzyc pliku" << endl;
-        return 1;
-    }
+    if (zapis.good() == false)  throw std::runtime_error{ "blad otwarcia pliku" };
 
     zapis << W << " " << K << endl;
 
@@ -162,23 +181,3 @@ int Macierz::store(string filename)
     zapis.close();
     return 0;
 }
-
-// DODAWANIE
-Macierz* Macierz::add(Macierz* m2)
-{
-
-
-    if (!(m2->rows() == W && m2->cols() == K)) {
-        std::cout << " !! aby dodać do do siebie macierze, muszą miec one taki sam rozmiar" << std::endl;
-        return NULL;
-    }
-
-    Macierz* nowa = new Macierz(W, K);
-
-    for (int i = 0; i < W; i++)
-        for (int j = 0; j < K; j++)
-            nowa->set(i, j, M[i][j] + m2->get(i, j));
-
-    return nowa;
-}
-

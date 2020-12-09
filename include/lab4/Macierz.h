@@ -17,18 +17,18 @@ public:
     Macierz(const char* filename); 
     ~Macierz();
     
-    void set(int , int , double );
-    double get(int , int );
+    void set(int, int, double);
+    double get(int, int);
     void print();
     void info();
 
     
-    int cols(){return K;}
-    int rows(){return W;}
+    int cols() noexcept {return K;}
+    int rows() noexcept {return W;}
 
-    Macierz* add(Macierz *m);
-    Macierz* subtract(Macierz *m);
-    Macierz* multiply(Macierz *m);
+    Macierz add(Macierz m);
+    Macierz subtract(Macierz m);
+    Macierz multiply(Macierz m);
 
     int store(std::string filename);
 
