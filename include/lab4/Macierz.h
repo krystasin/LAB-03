@@ -35,7 +35,11 @@ public:
   
 
     Macierz operator+(Macierz &other);
+    Macierz operator-(Macierz &other);
+    Macierz operator*(Macierz &other);
+    bool operator==(Macierz &other);
     
 
 
+    double* operator[](int wiersz);
 };

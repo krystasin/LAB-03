@@ -188,10 +188,72 @@ Macierz Macierz::operator+(Macierz &other){
         for (int j = 0; j < K; j++)
            nowa.set(i,j, M[i][j] + other.get(i,j));
 
-    cout << "||||" <<endl;
-
     return nowa;
 
+}
+
+
+
+Macierz Macierz::operator-(Macierz &other){
+    if(K != other.cols() || W != other.rows())
+        throw std::runtime_error{ "operator- : macierze mają rozne rozmiary" };
+
+    Macierz nowa(W,K);
+
+    for (int i = 0; i < W; i++)
+        for (int j = 0; j < K; j++)
+           nowa.set(i,j, M[i][j] - other.get(i,j));
+
+    return nowa;
+}
+
+
+
+Macierz Macierz::operator*(Macierz &other){
+    if (K != other.rows()) throw std::runtime_error{ "nie mozna wykonac mnozenia na tych macierzach" };
+
+    int C=other.cols();
+    Macierz nowa(W, C);
+
+    int rows = W;
+    int cols = K;
+
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < C; j++)
+            for (int l = 0; l < cols; l++) {
+                double temp = M[i][l] * other.get(l, j);
+                nowa.set(i, j, nowa.get(i, j) + temp);
+            }   
+   
+    return nowa;
+}
+
+
+
+bool Macierz::operator==(Macierz &other){
+
+    if ( K!=other.cols() || W!=other.rows()) 
+        return false;
+
+
+    for (size_t i = 0; i < W; i++)
+        for (size_t j = 0; j < K; j++)
+            if( M[i][j] != other.get(i,j))
+                return false;
+
+    return true;
+}
+
+
+
+
+double* Macierz::operator[](int wiersz){
+    double ptr[K];
+    for (size_t i = 0; i < K; i++)
+        ptr[i] = M[wiersz][i];
+    
+    
+    return ptr;
 }
 
 
