@@ -178,6 +178,21 @@ int Macierz::store(string filename)
 
 
 
+Macierz Macierz::operator+(Macierz &other){
+    if(K != other.cols() || W != other.rows())
+        throw std::runtime_error{ "runtime_error : operator+ : macierze mają rozne rozmiary" };
+
+    Macierz nowa(W,K);
+
+    for (int i = 0; i < W; i++)
+        for (int j = 0; j < K; j++)
+           nowa.set(i,j, M[i][j] + other.get(i,j));
+
+    cout << "||||" <<endl;
+
+    return nowa;
+
+}
 
 
 

@@ -34,6 +34,8 @@ public:
 
   
 
+    Macierz operator+(Macierz &other);
+    
 
 
 };

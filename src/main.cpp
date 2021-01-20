@@ -150,7 +150,19 @@ int main(int argc, char *argv[])
 
     cout << "\n\nOPERATORS_<<__________________________________________\n";
     cout << "m1 :\n" << m1 << endl;
-    m1.print();
+    m2.print();
 
+    cout << "\n\nOPERATORS_+__________________________________________\n";
+    try{
+    Macierz o1 = m1+m2;
+    cout << o1 <<endl;
+    }
+    catch(const std::runtime_error& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+
+cout << "|2222||" <<endl;
     return 0;
 }
