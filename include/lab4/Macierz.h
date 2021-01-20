@@ -32,10 +32,7 @@ public:
 
     int store(std::string filename);
 
-
-
-
-
+  
 
 
 

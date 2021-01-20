@@ -79,29 +79,29 @@ CMakeFiles/lab4.dir/src/main.cpp.obj: CMakeFiles/lab4.dir/flags.make
 CMakeFiles/lab4.dir/src/main.cpp.obj: CMakeFiles/lab4.dir/includes_CXX.rsp
 CMakeFiles/lab4.dir/src/main.cpp.obj: ../src/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\STUDIA\III SEMESTR\JIPP\LAB-03\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab4.dir/src/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lab4.dir\src\main.cpp.obj -c "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\main.cpp"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lab4.dir\src\main.cpp.obj -c "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\main.cpp"
 
 CMakeFiles/lab4.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab4.dir/src/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\main.cpp" > CMakeFiles\lab4.dir\src\main.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\main.cpp" > CMakeFiles\lab4.dir\src\main.cpp.i
 
 CMakeFiles/lab4.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab4.dir/src/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\main.cpp" -o CMakeFiles\lab4.dir\src\main.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\main.cpp" -o CMakeFiles\lab4.dir\src\main.cpp.s
 
 CMakeFiles/lab4.dir/src/Macierz.cpp.obj: CMakeFiles/lab4.dir/flags.make
 CMakeFiles/lab4.dir/src/Macierz.cpp.obj: CMakeFiles/lab4.dir/includes_CXX.rsp
 CMakeFiles/lab4.dir/src/Macierz.cpp.obj: ../src/Macierz.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\STUDIA\III SEMESTR\JIPP\LAB-03\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab4.dir/src/Macierz.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lab4.dir\src\Macierz.cpp.obj -c "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\Macierz.cpp"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lab4.dir\src\Macierz.cpp.obj -c "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\Macierz.cpp"
 
 CMakeFiles/lab4.dir/src/Macierz.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab4.dir/src/Macierz.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\Macierz.cpp" > CMakeFiles\lab4.dir\src\Macierz.cpp.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\Macierz.cpp" > CMakeFiles\lab4.dir\src\Macierz.cpp.i
 
 CMakeFiles/lab4.dir/src/Macierz.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab4.dir/src/Macierz.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\Macierz.cpp" -o CMakeFiles\lab4.dir\src\Macierz.cpp.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\STUDIA\III SEMESTR\JIPP\LAB-03\src\Macierz.cpp" -o CMakeFiles\lab4.dir\src\Macierz.cpp.s
 
 # Object files for target lab4
 lab4_OBJECTS = \

@@ -124,8 +124,6 @@ Macierz Macierz::add(Macierz m2)
     return nowa;
 }
 
-
-
 // ODEJMOWANIE
 Macierz Macierz::subtract(Macierz m2)
 {
@@ -159,10 +157,6 @@ Macierz Macierz::multiply(Macierz m2)
     return nowa;
 }
 
-
-
-
-
 // ZAPIS DO PLIKU
 int Macierz::store(string filename)
 {
@@ -181,3 +175,9 @@ int Macierz::store(string filename)
     zapis.close();
     return 0;
 }
+
+
+
+
+
+

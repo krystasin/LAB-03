@@ -8,6 +8,18 @@
 
 using namespace std;
 
+
+std::ostream &operator<<(std::ostream &stream, Macierz &M){
+    
+    for (int i = 0; i < M.rows(); i++) {
+        for (int j = 0; j < M.cols(); j++)      cout << setfill(' ') << setw(4) << M.get(i,j);
+        std::cout << std::endl;
+    }
+    return stream;
+}
+
+
+
 int main(int argc, char *argv[])
 {
 
@@ -72,7 +84,7 @@ int main(int argc, char *argv[])
     }
     catch (const std::runtime_error &ex)
     {
-        std::cout << "-wyjatek- :" << ex.what() << std::endl;
+        
     }
 
     Macierz suma = m2.add(m3);
@@ -83,24 +95,28 @@ int main(int argc, char *argv[])
         m1.store("zapis/kszton1.txt");
     }
     catch (const std::runtime_error &ex)    {
-        m2.store("zapis/kszton2.txt");
-    }
+        std::cout << "-wyjatek zapis m1- :" << ex.what() << std::endl;}
+    
+
+    try  {
+        m2.store("zapis/kszton2.txt");}
+    catch (const std::runtime_error &ex)    {
+        std::cout << "-wyjatek zapis m2- :" << ex.what() << std::endl;}
+    
 
 
-    try    {    
-        m3.store("zapis/kszton3.txt");
+    try    
+    {       m3.store("zapis/kszton3.txt");
     }
-    catch(const std::runtime_error& e)    {
-        std::cerr << e.what() << '\n';
+    catch(const std::runtime_error& e)    
+    {       std::cerr << e.what() << '\n';
     }
 
     try    {
-       suma.store("zapis/suma.txt");
-    }
-    catch(const std::runtime_error& e)    
-    {
-       std::cerr << e.what() << '\n';
-    }
+        suma.store("zapis/suma.txt");  }
+    catch(const std::runtime_error& e) {   
+        std::cerr << e.what() << '\n';}
+    
         
 
 
@@ -131,7 +147,10 @@ int main(int argc, char *argv[])
         cout << "wystapil wyjatek o bledzie: " << ex.what();
     }
    
-cin.get();
-    system("PAUSE");
+
+    cout << "\n\nOPERATORS_<<__________________________________________\n";
+    cout << "m1 :\n" << m1 << endl;
+    m1.print();
+
     return 0;
 }
