@@ -83,8 +83,17 @@ int main(int argc, char *argv[])
         m1.store("zapis/kszton1.txt");
     }
     catch (const std::runtime_error &ex)    {
+       std::cerr << "terminate called after throwing an instance of 'std::runtime_error':\n" 
+                 << "what(): "<< ex.what() << std::endl;
+    }
+
+    try    {
         m2.store("zapis/kszton2.txt");
     }
+    catch (const std::runtime_error &ex)   {
+        std::cerr   << "terminate called after throwing an instance of 'std::runtime_error':\n" 
+                    << "what(): "<< ex.what() << std::endl;
+        }
 
 
     try    {    
