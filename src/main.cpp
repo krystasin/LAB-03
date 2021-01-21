@@ -68,7 +68,12 @@ int main(int argc, char *argv[])
     cout << "\nm2:\n";
     m2.print();
     cout << "\nm3:\n";
-    m3.print();
+    cout << m3 <<endl;
+    m3 += 2;
+    cout << "m3+=2;\n" << m3 <<endl;
+    m3++;
+    cout << "m3++;\n" << m3 <<endl;
+
 
 
     std::cout << "iloczyn: m1*m2 \n";
@@ -113,6 +118,10 @@ int main(int argc, char *argv[])
        std::cerr << "runtime_error what() : "<< e.what() << '\n';
     }
 
+
+
+
+
     Macierz S = m2;
     cout << "\n\n m2: \n" << m2;
     cout << "\n\n S: \n" << S;
@@ -120,11 +129,22 @@ int main(int argc, char *argv[])
     int x =( S == m2);
     cout << "operator == działa " << x <<endl;
     
-    double *ptr = S[2];
-    for (int i = 0;  i < S.cols(); i++)
+    cout << "\n M1 \n" <<m1 <<endl;
+    double *ptr = m1[3];
+  
+    for (int i = 0;  i < m1.cols(); i++, ptr++)
         cout << *ptr << "  ";
-    cout << endl;
+
+
+
+        
+
+
     
+
+
+
+
 
 
 

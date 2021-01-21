@@ -246,15 +246,47 @@ bool Macierz::operator==(Macierz &other){
 
 
 
+double* Macierz::operator[](int index) 
+{ 
+    if (index >= W) { 
+        std::cout << "Array index out of bound, exiting"; 
+        exit(0); 
+    } 
 
-double* Macierz::operator[](int wiersz){
-    double ptr[K];
-    for (size_t i = 0; i < K; i++)
-        ptr[i] = M[wiersz][i];
-    
-    
-    return ptr;
+
+    return M[index]; 
 }
 
 
 
+
+Macierz Macierz::operator=(Macierz &other){
+
+    return other;
+}
+
+
+
+
+Macierz Macierz::operator+=(int x)
+{
+ 
+    Macierz other(W,K);
+    for (size_t i = 0; i < W; i++)
+        for (size_t j = 0; j < K; j++)
+            other.set(i,j, M[i][j] += x);
+
+    return other;
+}
+
+
+Macierz Macierz::operator++(int x)
+{
+ 
+    Macierz other(W,K);
+    for (size_t i = 0; i < W; i++)
+        for (size_t j = 0; j < K; j++)
+            other.set(i,j, M[i][j]++);
+
+    return other;
+}
